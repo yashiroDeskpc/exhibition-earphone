@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import Logo from '../../public/img/eearphoneLogo.svg';
+import Logo from '../img/eearphoneLogo.svg';
 import { FaSearch } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa6";
@@ -79,9 +79,8 @@ function Header() {
     </div>
   </li>
 </ul>
-
             </div>
-            <Accordion />
+      <Accordion />
 
         </header>
     );

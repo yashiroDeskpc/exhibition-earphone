@@ -1,8 +1,8 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import review1 from '../../public/img/review1.png'
-import review2 from '../../public/img/review2.png'
+import review1 from '../img/review1.png'
+import review2 from '../img/review2.png'
 
 import 'swiper/css';
 import 'swiper/css/navigation';

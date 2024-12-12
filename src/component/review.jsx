@@ -1,7 +1,7 @@
 import React from "react";
 import { More } from "./maincol1";
-import staff from "../../public/img/staff.png"
-import reviewitem from "../../public/img/reviewitem.png"
+import staff from "../img/staff.png"
+import reviewitem from "../img/review1.png"
 
 const staffreview = [
     {id:1,Image:reviewitem,brandname:"ブランド名",itemname:"商品名",

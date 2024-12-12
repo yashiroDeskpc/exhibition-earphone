@@ -4,9 +4,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Scrollbar } from "swiper/modules";
 
-import headphone from "../../public/img/headphone1.png"
+import headphone from "../img/headphone1.png";
 
-// Moreコンポーネント：もっと見るボタンを表示する
 export function More() {
   return (
     <button className="morebtn">もっと見る</button>
@@ -21,7 +20,6 @@ function RecentProducts() {
     { id: 3, image: headphone, name: "商品名C", company: "B社", price: "¥65,540(税込み)", points: "加算ポイント120pt", rating: "4.0" },
     { id: 4, image: headphone, name: "商品名D", company: "B社", price: "¥65,540(税込み)", points: "加算ポイント120pt", rating: "4.0" },
     { id: 5, image: headphone, name: "商品名E", company: "B社", price: "¥65,540(税込み)", points: "加算ポイント120pt", rating: "4.0" },
-    { id: 6, image: headphone, name: "商品名E", company: "B社", price: "¥65,540(税込み)", points: "加算ポイント120pt", rating: "4.0" },
   ];
 
   return (

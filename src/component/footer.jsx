@@ -1,5 +1,3 @@
-// wwww
-
 
 import React from "react";
 
