@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Scrollbar } from "swiper/modules";
+import kaitori from "../img/10kaitori.png";
 
 import headphone from "../img/headphone1.png";
 
@@ -24,6 +25,7 @@ function RecentProducts() {
 
   return (
     <div className="recent-products"> 
+    <img className="kaitori-img" src={kaitori} alt="買取キャンペーン" />
       <h2>最近チェックした商品</h2>
       <Swiper
         slidesPerView={4}

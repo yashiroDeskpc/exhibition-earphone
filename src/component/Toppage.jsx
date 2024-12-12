@@ -7,6 +7,7 @@ import Reviewcol from '../component/review'
 import News from '../component/news'
 import Guidance from '../component/guidance'
 import  Sougo  from '../component/guidance'
+import Recommend from '../component/recommend'
 
 function Toppage() {
     return (
@@ -23,8 +24,8 @@ function Toppage() {
         </div>
         <Reviewcol />
         <News />
+        <Recommend />
         <Guidance />
-        <Sougo />
         <Footer />
         </>
     )

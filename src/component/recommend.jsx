@@ -11,13 +11,16 @@ const RecommendItem = ({ image, alt }) => (
 );
 
 const Recommend = () => {
+    const recommendItems = [
+        { image: '/path/to/image1.jpg', alt: '商品1' },
+        { image: '/path/to/image2.jpg', alt: '商品2' },
+        { image: '/path/to/image3.jpg', alt: '商品3' },
+    ];
+
     return (
         <div className="recommend-section">
-            
             <h2>おすすめ・特集</h2>
             <div className='recommend-box'>
-                <img className='recommend-img' src={image} alt={alt}/>
-                <img className='recommend-img' src={image} alt={alt} />
             </div>
             <Swiper
                 modules={[Navigation, Pagination]}

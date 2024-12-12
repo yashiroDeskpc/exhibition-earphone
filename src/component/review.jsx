@@ -1,7 +1,7 @@
 import React from "react";
 import { More } from "./maincol1";
 import staff from "../img/staff.png"
-import reviewitem from "../img/review1.png"
+import reviewitem from "../img/reviewitem.png"
 
 const staffreview = [
     {id:1,Image:reviewitem,brandname:"ブランド名",itemname:"商品名",
@@ -46,7 +46,7 @@ const allreview = [
         author:"サウンドマニア",star:"★★★★",point:4.0,
     },
     {id:6,image:reviewitem,brandname:"ブランド名",itemid:"商品名",
-        title:"音楽がより楽しく",review:"これまで使っていたイヤホンとは一線を画す音質です。音楽がより立体的に聴こえ、新しい発見がたくさんあります。",
+        title:"音楽がより楽しく",review:"これまで使っていたイヤホンとは一線を画す音質です。音楽がより立体的に聴こえ",
         author:"音楽ファン",star:"★★★★★",point:5.0,
     }
 ]
@@ -63,8 +63,10 @@ const ReviewItem = ({ item }) => (
             <p className="title">{item.title}</p>
             <p className="review">{item.review}</p>
             <p className="author">{item.author}</p>
-            <p className="star">{item.star}</p>
-            <p className="point">{item.point}</p>
+            <div className="rating-container">
+                <span className="star">{item.star}</span>
+                <span className="point">{item.point}</span>
+            </div>
         </div>
     </div>
 );
@@ -81,32 +83,30 @@ function StaffReview() {
                 </div>
 
                 <div className="staff-review-wrapper">
-                    {[1, 2, 3].map((section) => (
-                        <div key={section} className="staff-reviewcon">
-                            {staffreview.map((item) =>
-                                <div key={item.id} className="staff-reviewitem">
-                                    <img src={item.Image} alt="itemimage" />
-                                    <div className="staff-reviewtext">
-                                        <p className="brandname">{item.brandname}</p>
-                                        <p className="itemname">{item.itemname}</p>
-                                    </div>
-                                    <div className="staff-review-category">
-                                        <p className="category1">{item.category1}</p>
-                                        <p className="category2">{item.category2}</p>
-                                        <p className="category3">{item.category3}</p>
-                                    </div>
-                                    <div className="staff-review-review">
-                                        <p className="review">{item.review}</p>
-                                    </div>
-                                    <div className="staff-review-stuff">
-                                        <img src={item.staffimg} alt="stuffimage" />
-                                        <p className="stuffname">{item.staffname}</p>
-                                        <p className="stufflocation">{item.stafflocation}</p>
-                                    </div>
+                    <div className="staff-reviewcon">
+                        {staffreview.map((item) =>
+                            <div key={item.id} className="staff-reviewitem">
+                                <img src={item.Image} alt="itemimage" />
+                                <div className="staff-reviewtext">
+                                    <p className="brandname">{item.brandname}</p>
+                                    <p className="itemname">{item.itemname}</p>
                                 </div>
-                            )}
-                        </div>
-                    ))}
+                                <div className="staff-review-category">
+                                    <p className="category1">{item.category1}</p>
+                                    <p className="category2">{item.category2}</p>
+                                    <p className="category3">{item.category3}</p>
+                                </div>
+                                <div className="staff-review-review">
+                                    <p className="review">{item.review}</p>
+                                </div>
+                                <div className="staff-review-stuff">
+                                    <img src={item.staffimg} alt="stuffimage" />
+                                    <p className="stuffname">{item.staffname}</p>
+                                    <p className="stufflocation">{item.stafflocation}</p>
+                                </div>
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <More />
             </section>
@@ -115,14 +115,25 @@ function StaffReview() {
 }
 
 const AllReview = () => {
+    const firstRow = allreview.slice(0, 3);  // 最初の3つ（1行目）
+    const secondRow = allreview.slice(3, 6);  // 次の3つ（2行目）
+
     return (
         <>
-        <h3 className="allreview">総合レビュー</h3>
-        <div className="allreview-wrapper">
-        {allreview.map((item) => (
-            <ReviewItem key={item.id} item={item} />
-        ))}
-        </div>
+            <h3 className="allreview">総合レビュー</h3>
+            <div className="allreview-wrapper">
+                <div className="allreview-row">
+                    {firstRow.map((item) => (
+                        <ReviewItem key={item.id} item={item} />
+                    ))}
+                </div>
+                <div className="allreview-row">
+                    {secondRow.map((item) => (
+                        <ReviewItem key={item.id} item={item} />
+                    ))}
+                </div>
+                <More />
+            </div>
         </>
     );
 }
@@ -132,7 +143,6 @@ export default function Reviewcol() {
         <>
             <StaffReview />
             <AllReview />
-            <More />
         </>
     );
 }

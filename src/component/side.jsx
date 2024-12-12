@@ -169,9 +169,6 @@ function InformationBox() {
 }
 
 
-
-
-
 export default function Content() {
     return (
         <div className="productcate">
