@@ -123,7 +123,7 @@ function Brandnamesearch({ brandname }) {
 
 function Brand_search() {
     return (
-        <div>
+        <div className="brandcol">
             <h2 className="info-title">ブランドから探す</h2>
             <div className="sidecategbrand">
                 {brandcon.map((brand) => (
@@ -172,7 +172,7 @@ function InformationBox() {
 
 
 
-function Content() {
+export default function Content() {
     return (
         <div className="productcate">
             <Leftcate />
@@ -182,6 +182,3 @@ function Content() {
         </div>
     );
 }
-
-
-export default Content;

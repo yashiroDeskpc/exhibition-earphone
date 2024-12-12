@@ -10,6 +10,7 @@ import News from './component/news';
 import Guidance from './component/guidance';
 import Sougo from './component/guidance';
 import Toppage from './component/Toppage';
+import Purchase from './purchasecon/purchase';
 
 function App() {
   return (
