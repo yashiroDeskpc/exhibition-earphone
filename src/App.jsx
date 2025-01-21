@@ -14,8 +14,7 @@ import { BrowserRouter, Route, Routes, Link } from 'react-router';
 import Highpur from './LP/highpur';
 import Purcheck from './LP/purcheck';
 import LP from './LP/LP';
-
-import "./app.css"
+import './App.css';
 
 function App() {
   return (
