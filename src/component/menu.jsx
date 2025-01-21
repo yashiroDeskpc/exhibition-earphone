@@ -1,5 +1,4 @@
 import { useState } from "react";
-import '../app.css'
 import { FaShoppingCart } from "react-icons/fa";
 import { FaHeart, FaPlus, FaMinus } from "react-icons/fa6";
 import { IoSearch,IoPerson } from "react-icons/io5";
