@@ -1,5 +1,5 @@
 import Logo from '../img/eearphoneLogo.svg';
-import Lp_header from '../img/LPheader.png';
+import Lp_header from '../img/lpheader.png';
 import { BrowserRouter, Route, Routes, Link } from 'react-router';
 import { useState } from 'react';
 
