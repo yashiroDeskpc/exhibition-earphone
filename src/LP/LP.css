@@ -1,0 +1,543 @@
+.lp_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    width: 100%;
+    padding: 10px 5%;
+}
+
+
+header{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.lp_header ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 10px 5%;
+    margin: 0;
+    gap: 30px;
+}
+
+.lp_header ul li{
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#LP_btn {
+    background-color: #F08300;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.LPh1 { 
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+h1 img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.img_logo{
+    width: 180px;
+    height: auto;
+}
+
+.highpur{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.highpur p{
+    font-size: 16px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.highpur p span{
+    color: #F08300;
+    font-weight: bold;
+}
+
+.highpur h2{
+    font-size: 24px;
+    text-align: center;
+    padding: 10px 0;
+}
+.highpur_list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.highpur_list p{
+    margin: 0;
+    padding: 0;
+}
+
+.highpur_list_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 200px;
+}
+
+.highpur_list_item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.highpur_list_item p {
+    width: 100%;
+    text-align: center;
+    margin: 3px 0;
+}
+
+h2{
+    text-align: center;
+    margin: 15px 0;
+}
+
+.purcheck {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.LPsearchtext {
+    width: 80%;
+    height: 50px;
+    padding: 0 50px 0 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 40px auto;
+    background-color: #D9D9D9;
+    border: 1px solid #ddd;
+    outline: none;
+    display: block;
+}
+
+.LPsearchboxright {
+    position: absolute;
+    right: 10%;
+    top: 70px;
+    cursor: pointer;
+    background-color: #F08300;
+    padding: 16px 60px;
+    border-radius: 5px;
+}
+
+.LPsearch_icon {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.purpoint {
+    display: flex;
+    flex-direction: row; /* デフォルトでは横並び */
+    justify-content: center;
+    gap: 20px; /* アイテム間のスペース */
+}
+
+.purpoint_item {
+    text-align: center;
+    width: 200px; /* 必要に応じて調整 */
+}
+
+.purpointcol{
+    width: 100%;
+    margin: 0 auto;
+    background-color: #D9D9D9;
+    padding: 50px 0;
+}
+
+.purpoint2 {
+    width: 60%;
+    margin: 60px auto;
+}
+
+.purpoint2 h2{
+    margin-bottom: 40px;
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.compare-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.compare-table td:first-child {
+    width: 15%;
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.compare-table td:nth-child(2) {
+    width: 42.5%;
+    background-color: #FFF7E6;
+}
+
+.compare-table td:last-child {
+    width: 42.5%;
+}
+
+.highlight {
+    color: #F08300;
+    font-weight: bold;
+}
+
+.purpoint2-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 30px;
+}
+
+
+.purpoint2-text h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: left;
+}
+
+.purpoint2-image {
+    flex: 1;
+}
+
+.purpoint2-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.compare-header {
+    display: grid;
+    grid-template-columns: 15% 42.5% 42.5%;
+    margin-bottom: 0;
+}
+
+.compare-header > div:empty {
+    background-color: #ffffff;
+}
+
+.compare-title {
+    background-color: #F08300;
+    padding: 10px;
+    text-align: center;
+}
+
+.compare-title h3 {
+    color: white;
+    margin: 0;
+    font-size: 18px;
+}
+
+.compare-title:last-child {
+    background-color: #333;
+}
+
+.highpur-list {
+    width: 60%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.highpur-list h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.highpur-list h3 {
+    font-size: 24px;
+    margin: 5px 0;
+}
+
+.highpur-table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+
+.highpur-table th {
+    background-color: #000;
+    color: #fff;
+    padding: 15px;
+    text-align: left;
+}
+
+.highpur-table th:last-child {
+    text-align: right;
+}
+
+.highpur-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.highpur-table .price {
+    color: #F00;
+    font-weight: bold;
+    text-align: right;
+}
+
+.col3_item{
+    width: 60%;
+    margin: 40px auto;
+    background-color: #D9D9D9;
+    padding: 50px;
+}
+
+.col3_item_text{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+    gap: 20px;
+}
+.col3_item_text img {
+    width: 20%;
+}
+
+.col3_item p{
+    text-align: center;
+    font-weight: bold;
+}
+
+.col3_itemback{
+    background-color: white;
+    padding: 20px;
+}
+
+.col3_itemback p{
+    font-weight: bold;
+}
+
+.col3_itemback span{
+    color: #F08300;
+    font-size: 22px;
+}
+
+.corppur_img1{
+    margin: 0 auto;
+}
+
+.corppur p{
+    width: 60%;
+    margin: 0 auto;
+    text-align: left;
+    padding: 10px 0;
+    font-weight: bold;
+
+}
+
+.corppur_btn{
+    background-color: #A57200;
+    color: white;
+    padding: 5px 40px;
+    margin: 40px auto;
+    display: block;
+    box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);;
+}
+
+.precautions{
+    width: 60%;
+    margin: 40px auto;
+    background-color: white;
+}
+
+.precautions h3{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.precautions p{
+    text-align: left;
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+.question {
+    margin: 0 auto;
+    width: 60%;
+}
+
+.question p{
+    font-weight: bold;
+    margin: 20px 0;
+}   
+
+.faq-item h3{
+    background-color: #fdd835;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+
+.more-button {
+    background-color: #176000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.img_logo{
+    width: 200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.purpointcol {
+    padding: 50px 0;
+}
+
+.menu-toggle {
+    display: none; /* ハンバーガーメニューを表示 */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: auto; /* 左側のマージンを自動にして右寄せ */
+}
+
+.line1, .line2, .line3 {
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+
+@media (max-width: 1120px){
+    .highpur_list_item {
+        width: 20%; /* 2つ表示するための幅を設定 */
+    }
+    .col3_item_text img {
+        width: 22.5%;
+        gap: 5px;
+    }
+}
+
+
+
+@media (max-width: 768px) { /* 768px以下の画面サイズで */
+    .menu-toggle {
+        display: flex; /* ハンバーガーメニューを表示 */
+    }
+
+    .nav-menu {
+        display: none; /* デフォルトでは非表示 */
+        flex-direction: column; /* 縦並び */
+    }
+
+    .nav-menu.open {
+        display: flex; /* メニューが開いたときに表示 */
+    }
+
+    .nav-menu li:not(#LP_btn) {
+        display: none; /* LP_btn以外のアイテムを非表示 */
+    }
+    .lp_header ul{
+        gap: 0;
+    }
+    .highpur_list_item {
+        width: 30%; /* 2つ表示するための幅を設定 */
+    }
+    .purpoint {
+        flex-direction: column; /* 縦並びに変更 */
+        align-items: center; /* 中央揃え */
+    }
+
+    .purpoint_item {
+        width: 100%; /* 幅を100%に設定 */
+    }
+    .purpoint {
+        display: flex;
+        flex-direction: column; /* 縦並び */
+        align-items: center; /* 中央揃え */
+        gap: 20px; /* アイテム間のスペース */
+    }
+    
+    .purpoint img {
+        width: 30%; /* 幅を100%に設定 */
+        height: auto; /* 高さは自動調整 */
+        max-width: 300px; /* 最大幅を設定（必要に応じて調整） */
+    }
+    .compare-table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+    }
+    
+    .compare-table td {
+        padding: 15px;
+        border: 1px solid #ddd;
+        text-align: center;
+        vertical-align: middle;
+    }
+    
+    .compare-table td:first-child {
+        width: 25%; /* 最初の列の幅を広げる（必要に応じて調整） */
+        background-color: #f5f5f5;
+        font-weight: bold;
+    }
+    
+    .compare-table td:nth-child(2) {
+        width: 37.5%; /* 2列目の幅を調整 */
+        background-color: #FFF7E6;
+    }
+    
+    .compare-table td:last-child {
+        width: 37.5%; /* 3列目の幅を調整 */
+    }
+
+        .col3_item_text {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+    }
+    .col3_item_text img{
+        width: 35%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .col3_item_text {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

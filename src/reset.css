@@ -12,7 +12,7 @@
 
 :where(html) {
 	-webkit-text-size-adjust: none;
-	color-scheme: dark light;
+	color-scheme: light;
 	tab-size: 2;
 	scrollbar-gutter: stable;
 	line-height: 1.5;

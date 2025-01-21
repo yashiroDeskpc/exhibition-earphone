@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { More } from "./maincol1";
 import staff from "../img/staff.png"
 import reviewitem from "../img/reviewitem.png"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Grid } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/grid';
 
 const staffreview = [
     {id:1,Image:reviewitem,brandname:"ブランド名",itemname:"商品名",
@@ -73,40 +79,70 @@ const ReviewItem = ({ item }) => (
 
 
 function StaffReview() {
+    const [activeIndex, setActiveIndex] = useState(null);
+    const [showNavigation, setShowNavigation] = useState(false);
+
+    const handleItemClick = (index) => {
+        setActiveIndex(index);
+        setShowNavigation(true);
+    };
+
     return (
         <>
             <section className="staff-review">
                 <h3 className="itemcate">スタッフレビュー</h3>
                 <div className="staff-review-tabs">
-                    <h4 className="staff active">新着</h4>
-                    <h4 className="staff">人気</h4>
+                    <h4 className={`staff ${activeIndex === 0 ? 'active' : ''}`} onClick={() => handleItemClick(0)}>新着</h4>
+                    <h4 className={`staff ${activeIndex === 1 ? 'active' : ''}`} onClick={() => handleItemClick(1)}>人気</h4>
                 </div>
 
                 <div className="staff-review-wrapper">
-                    <div className="staff-reviewcon">
-                        {staffreview.map((item) =>
-                            <div key={item.id} className="staff-reviewitem">
-                                <img src={item.Image} alt="itemimage" />
-                                <div className="staff-reviewtext">
-                                    <p className="brandname">{item.brandname}</p>
-                                    <p className="itemname">{item.itemname}</p>
+                    <Swiper
+                        className="staff-swiper"
+                        spaceBetween={10}
+                        slidesPerView={1}
+                        modules={[Navigation, Pagination]}
+                        navigation={showNavigation ? true : false}
+                        pagination={{ 
+                            clickable: true
+                        }}
+                        breakpoints={{
+                            470: {
+                                slidesPerView: 1,
+                            },
+                            500: {
+                                slidesPerView: 2,
+                            },
+                            1200: {
+                                slidesPerView: 3,
+                            },
+                        }}
+                    >
+                        {staffreview.map((item) => (
+                            <SwiperSlide key={item.id}>
+                                <div className="staff-reviewitem card">
+                                    <img src={item.Image} alt="itemimage" />
+                                    <div className="staff-reviewtext">
+                                        <p className="brandname">{item.brandname}</p>
+                                        <p className="itemname">{item.itemname}</p>
+                                    </div>
+                                    <div className="staff-review-category">
+                                        <p className="category1">{item.category1}</p>
+                                        <p className="category2">{item.category2}</p>
+                                        <p className="category3">{item.category3}</p>
+                                    </div>
+                                    <div className="staff-review-review">
+                                        <p className="review">{item.review}</p>
+                                    </div>
+                                    <div className="staff-review-stuff">
+                                        <img src={item.staffimg} alt="stuffimage" />
+                                        <p className="stuffname">{item.stuffname}</p>
+                                        <p className="stufflocation">{item.stafflocation}</p>
+                                    </div>
                                 </div>
-                                <div className="staff-review-category">
-                                    <p className="category1">{item.category1}</p>
-                                    <p className="category2">{item.category2}</p>
-                                    <p className="category3">{item.category3}</p>
-                                </div>
-                                <div className="staff-review-review">
-                                    <p className="review">{item.review}</p>
-                                </div>
-                                <div className="staff-review-stuff">
-                                    <img src={item.staffimg} alt="stuffimage" />
-                                    <p className="stuffname">{item.staffname}</p>
-                                    <p className="stufflocation">{item.stafflocation}</p>
-                                </div>
-                            </div>
-                        )}
-                    </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
                 <More />
             </section>
@@ -115,23 +151,52 @@ function StaffReview() {
 }
 
 const AllReview = () => {
-    const firstRow = allreview.slice(0, 3);  // 最初の3つ（1行目）
-    const secondRow = allreview.slice(3, 6);  // 次の3つ（2行目）
+    const [showNavigation, setShowNavigation] = useState(false);
 
     return (
         <>
             <h3 className="allreview">総合レビュー</h3>
             <div className="allreview-wrapper">
-                <div className="allreview-row">
-                    {firstRow.map((item) => (
-                        <ReviewItem key={item.id} item={item} />
+                <Swiper
+                    className="allreview-swiper"
+                    spaceBetween={20}
+                    slidesPerView={3}
+                    grid={{
+                        rows: 2,
+                        fill: 'row'
+                    }}
+                    modules={[Pagination, Grid, Navigation]}
+                    navigation={showNavigation ? true : false}
+                    pagination={{ 
+                        clickable: true
+                    }}
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 1,
+                            grid: {
+                                rows: 1
+                            }
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            grid: {
+                                rows: 1
+                            }
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            grid: {
+                                rows: 2
+                            }
+                        }
+                    }}
+                >
+                    {allreview.map((item) => (
+                        <SwiperSlide key={item.id}>
+                            <ReviewItem item={item} />
+                        </SwiperSlide>
                     ))}
-                </div>
-                <div className="allreview-row">
-                    {secondRow.map((item) => (
-                        <ReviewItem key={item.id} item={item} />
-                    ))}
-                </div>
+                </Swiper>
                 <More />
             </div>
         </>

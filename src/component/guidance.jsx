@@ -1,4 +1,5 @@
 import React from "react";
+import dummylink from '../img/dummy.webp'
 
 function Guidance(){
     return(
@@ -44,6 +45,13 @@ function Guidance(){
                 e☆イヤホンは年中無休で営業しています。休まず出荷いたします。
             </p>
         </div>
+        </div>
+    </section>
+    <section className="sougolink">
+        <h2>相互リンク</h2>
+        <div className="sougolink-container">
+            <img src={dummylink} alt="相互リンク" />
+            <img src={dummylink} alt="相互リンク" />
         </div>
     </section>
     </>

@@ -1,3 +1,5 @@
+旧旧
+
 body{
   padding: 0;
   margin: 0;
@@ -78,6 +80,7 @@ h1 {
     border: none;
     border-radius: 4px;
     white-space: nowrap;
+    display: none;
 }
 
 .mypage {
@@ -110,13 +113,6 @@ h1 {
     padding: 10px 5%;
 }
 
-.header_nav ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
 
 .header_nav li {
     font-size: 14px;
@@ -136,6 +132,7 @@ h1 {
     color: #666;
     text-decoration: none;
 }
+
 
 .header_info a:hover {
     text-decoration: underline;
@@ -269,21 +266,19 @@ summary::-webkit-details-marker {
 }
 
 .swiper-slide {
-  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.swiper-button-next::after, .swiper-button-prev::after {
-
-  font-size: 16px;
-  color: #ffffff;
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 16px !important; /* !importantを使って強制的に上書き */
+    color: #fff !important; /* !importantを使って強制的に上書き */
 }
-
 .swiper-button-next, .swiper-button-prev {
    background-color: #000000;
-   width: 30px;
+   width: 40px;
    height: 30px;
    border-radius: 30px;
 }
@@ -293,11 +288,13 @@ summary::-webkit-details-marker {
 }
 
 .swiper-pagination-bullet {
-  background-color: rgb(0, 0, 0) ;
+  background-color: #f58026; /* ドットの色を設定 */
+  opacity: 0.3; /* ドットの透明度を設定 */
 }
 
 .reviw-img{
   object-fit: cover;
+  padding: 10px;
 }
 
 /* 左のメニュー */
@@ -316,10 +313,21 @@ summary::-webkit-details-marker {
 .brandname{
   text-decoration: none;
   color: #333;
+  margin: 3px;
+}
+
+.itemname{
+  margin: 3px;
+  font-weight: 500;
+}
+
+.review{
+  margin-top: 5px;
+  line-height:1.7;
 }
 
 .leftbandiv{
-  text-align: right;
+  text-align: left;
 }
 
 .left_categ{
@@ -377,6 +385,7 @@ summary::-webkit-details-marker {
   color: #f58026;
   margin-bottom: 10px;
   margin-right: 10%;
+  text-align: left;
 }
 
 .info-subtitle {
@@ -444,6 +453,11 @@ summary::-webkit-details-marker {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
+  width: 25%;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 10px;
 }
 
 
@@ -525,6 +539,7 @@ summary::-webkit-details-marker {
 .itemh3flex{
   display: flex;
   justify-content: space-evenly;
+  padding-top: 30px;
 }
 
 .itemcase-wrapper{
@@ -542,6 +557,7 @@ summary::-webkit-details-marker {
   height: 40px;
   border-radius: 5px;
   box-shadow: 2px 3px 2px 2px #bbb;
+  text-align: center;
 }
 
 
@@ -562,10 +578,31 @@ summary::-webkit-details-marker {
 }
 
 .staff-review-wrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-x: hidden;
+  position: relative;
+  padding-bottom: 40px;
+  z-index: 1;
+}
+
+.staff-review-wrapper .swiper-pagination {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+.staff-review-wrapper .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #f58026;
+    opacity: 0.2;
+    margin: 0 4px;
+}
+
+.staff-review-wrapper .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #F08300;
 }
 
 .staff-reviewcon{
@@ -575,17 +612,19 @@ summary::-webkit-details-marker {
 
 .staff-reviewitem {
   display: flex;
-  flex-direction: column;
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+  flex-direction: column;
   padding: 20px;
-  box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   transition: all 0.3s ease;
-  margin-bottom: 20px;
-  gap: 5px;
+  position: relative;
+  align-items: flex-start;
+  z-index: 1;
 }
+
+
 
 /* ホバー時のエフェクト */
 .staff-reviewitem:hover {
@@ -631,6 +670,7 @@ summary::-webkit-details-marker {
   width: 100%;
 }
 
+
 .staff-review-stuff img{
   width: 30%;
 }
@@ -640,32 +680,22 @@ summary::-webkit-details-marker {
 }
 
 /* 総合レビュー */
-.allreview-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding-left: 33%;
-    width: 55%;
-}
-
-.allreview{
+.allreview {
   padding-left: 33%;
   padding-right: 13%;
 }
 
-.allreview-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 40px;
-}
-
-.star {
-  color: #FF9944;
+.allreview-wrapper {
+    position: relative;
+    padding-bottom: 40px;
+    z-index: 1;
+    width: 55%; /* スタッフレビューと同じ幅に */
+    margin-left: 33%; /* スタッフレビューと同じ位置に */
 }
 
 .allreview-item {
     display: flex;
-    width: 85%;
+    width: 100%;
     flex-direction: column;
     padding: 20px;
     background-color: white;
@@ -673,6 +703,8 @@ summary::-webkit-details-marker {
     border-radius: 8px;
     transition: all 0.3s ease;
     position: relative;
+    align-items: flex-start;
+    z-index: 1;
 }
 
 .rating-container {
@@ -688,7 +720,7 @@ summary::-webkit-details-marker {
 .news {
   border: 1px solid #ddd;
   padding: 20px;
-  width: 52%;
+  width: 55%;
   background-color: #fff;
   margin-left: 33%;
 }
@@ -742,18 +774,19 @@ summary::-webkit-details-marker {
 }
 
 .recommend-section {
+  width: 80%;
   padding-left: 33%;
-  padding-right: 13%;
   margin-bottom: 40px;
 }
 
 .recommend-section h2 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   color: #333;
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
+  text-align: left;
 }
 
 .recommend-box {
@@ -779,7 +812,7 @@ summary::-webkit-details-marker {
 }
 
 .recommend-item img {
-  width: 100%;
+  width: 80%; /* 画像を小さくする */
   height: auto;
   object-fit: cover;
 }
@@ -795,13 +828,13 @@ summary::-webkit-details-marker {
 
 .recommend-section .swiper-button-next::after,
 .recommend-section .swiper-button-prev::after {
-  font-size: 16px;
+  font-size: 12px;
   color: #fff;
 }
 
 /* Swiperのページネーション */
 .recommend-section .swiper-pagination-bullet {
-  background-color: #000;
+  background-color: #f58026;
 }
 
 
@@ -812,8 +845,9 @@ summary::-webkit-details-marker {
 }
 
 .guide h2 {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 20px;
+    text-align:left;
 }
 
 .guidecol {
@@ -840,7 +874,7 @@ summary::-webkit-details-marker {
 
 .guide-item p {
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .payment-icons {
@@ -872,7 +906,6 @@ summary::-webkit-details-marker {
 }
 
 .guide-container{
-  width: 80%;
   margin: 0 auto;
   padding-left: 27%;
 }
@@ -881,3 +914,1117 @@ summary::-webkit-details-marker {
   padding: 1%;
   background-color: white;
 }
+
+/* 買取ページ */
+
+.purchase-container{
+  margin: 0 auto;
+  padding: 0 13%;
+}
+
+
+.itemcase-wrapper{
+  display: flex;
+}
+
+.itemcase {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+
+.side-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.purchase-swiper{
+  width: 100%;
+}
+
+
+.purchase-swiper{
+  width: 73%;
+  margin-right: 0;
+}
+
+
+.common-container{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+}
+
+.kawari-title{
+  margin-left: 27%;
+}
+
+.campaign-swiper {
+  position: relative;
+  padding: 0 40px;
+}
+
+.campaign-swiper .swiper-button-next,
+.campaign-swiper .swiper-button-prev {
+  background-color: #000;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.campaign-swiper .swiper-button-next::after,
+.campaign-swiper .swiper-button-prev::after {
+  font-size: 12px;
+  color: #fff;
+}
+
+
+.cp_menu {
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.cp_menu .menu_item {
+  position: relative;
+}
+
+.cp_menu label {
+  display: block;
+  padding: 12px;
+  line-height: 1;
+  color: #000000;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.cp_menu ul {
+  position: absolute;
+  top: 100%; /* ラベルの下に配置 */
+  left: 0;
+  margin: 0; /* デフォルトのマージンをリセット */
+  padding: 0; /* デフォルトのパディングをリセット */
+  background: #f4f4f4;
+  list-style: none;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s ease-out;
+  z-index: 1000;
+  width: 150px; /* リストの幅を設定 */
+  display: flex;
+  flex-direction: column; /* 縦方向に展開 */
+}
+
+.cp_menu ul li {
+  margin: 0; /* デフォルトのマージンをリセット */
+  padding: 0; /* パディングが不要ならリセット */
+  text-align: left;
+}
+
+.cp_menu ul li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #000;
+  background: #fff;
+  white-space: nowrap; /* テキストを1行に表示 */
+}
+
+.cp_menu ul li a:hover {
+  color: #F08300;
+}
+
+.cp_menu .menu_item:hover ul,
+.cp_menu .menu_item:focus-within ul {
+  height: auto; /* ホバー時に展開 */
+  gap: 0;
+}
+
+
+
+.recent-products-h2{
+  text-align: left;
+  font-size: 20px;
+}
+
+
+.fixed-images {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.fixed-item img {
+  width: 80%;
+  height: auto;
+  margin-left: 30px;
+  object-fit: cover;
+}
+
+
+
+.recommend-section .swiper {
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.recommend-item img {
+  width: 80%; /* 画像を小さくする */
+  height: auto;
+  object-fit: cover;
+  margin: 0 auto; /* 中央揃え */
+}
+
+.recommend-section .swiper-button-next,
+.recommend-section .swiper-button-prev {
+  background-color: #000;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.recommend-section .swiper-button-next::after,
+.recommend-section .swiper-button-prev::after {
+  font-size: 12px;
+  color: #fff;
+}
+
+.recommend-section .swiper-pagination-bullet {
+  background-color: #f58026;
+}
+
+.sougolink-container{
+  width: 55%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: right;
+  gap: 150px;
+  img{
+    width: 180px;
+    height: 250px;
+  }
+}
+
+.sougolink h2{
+  text-align: left;
+  margin-left: 33%;
+  font-size: 20px;
+}
+
+.responsive{
+  display: none;
+}
+
+.imglogolink{
+  width: 30%;
+  margin: 0 auto;
+}
+.hamburger-menu {
+  display: none;
+}
+
+.itemcate {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.itemcate.active {
+  color: #F08300;
+  border-bottom: 2px solid #F08300;
+}
+
+.menu-lp-nav{
+  text-decoration: none;
+}
+
+.swiper-pagination-bullet-active {
+  background: #f58026; /* アクティブなページネーションの色 */
+  opacity: 1;
+}
+
+
+
+
+
+/* レスポンシブデザインのためのメディアクエリ */
+
+
+@media (max-width: 900px) {
+  .top-h1{
+    display: none;
+  }
+  .h_top{
+    display: block;
+    justify-content: left;
+    padding: 0 3%;
+  }
+  .header_nav {
+    display: none;
+  }
+
+  .search_window {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    width: 70%;
+    margin: 20px auto;
+}
+.search_type {
+  height: 40px;
+  padding: 0 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.kaitori_btn {
+    height: 40px;
+    padding: 0 10px;
+    background: #282828;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+
+ .cp_menu {
+    display: none;
+  }
+  .brandsearch{
+    display: none;
+  }
+  .leftbandiv{
+    display: none;
+  }
+  .leftbrandcate{
+    display: none;
+  }
+  #productcateleft{
+    display: none;
+  }
+  .grid-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+  .itemcate{
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    margin: 8px 0;
+  }
+
+  .staff-review{
+    padding: 0;
+  }
+  .allreview{
+    padding: 0 5%;
+  }
+  .allreview-wrapper{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .allreview-item{
+    width: 100%;
+  }
+  .allreview-row{
+    width: 100%;
+    padding: 0;
+  }
+  .news{
+    padding: 0;
+    margin: 0 auto;
+    width: 90%;
+  }
+  .news-title{
+    width: 100%;
+  }
+  .recommend-section{
+    padding: 15px 0;
+    margin: 0 auto;
+    width: 90%;
+  }
+  .guide-container{
+    padding: 0;
+  }
+  .sougolink h2{
+    width: 75%;
+    margin: 20px auto;
+  }
+  .sougolink-container{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    margin: 0 auto;
+    justify-content: center
+  }
+  
+  .mypage li:not(:last-child) {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  .mypage{
+    width: auto;
+    display: block;
+  }
+  .container{
+    position: relative;
+    bottom: 100px;
+    right: 0;
+    left: 90%;
+    display: block;
+    width: 50px;
+    text-align: center;
+  }
+  .container svg{
+    width: 40px;
+  }
+  .container p{
+    display: none;
+  }
+
+  .guide-flex{
+    display: flex;
+    flex-direction: column;
+  }
+  .img_logolink{
+    margin: 0 auto;
+    width: 30%;
+  }
+  .hamburger-menu {
+    display: block;
+  }
+  .header_btn {
+    max-width: 35px;
+    width: 35px;
+    height: 35px;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    z-index: 9999;
+    padding: 5px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  /* 三本線のスタイル */
+  .line1, .line2, .line3 {
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  /* メニューが開いているときの×印 */
+  .line1.open {
+    transform: translateY(9px) rotate(45deg);
+    background-color: #F08300;
+  }
+  
+  .line2.open {
+    opacity: 0;
+  }
+  
+  .line3.open {
+    transform: translateY(-9px) rotate(-45deg);
+    background-color: #F08300;
+  }
+  
+  /* メニューが開いているときのボタン位置 */
+  .header_btn.open {
+    top: 15px;
+    left: 15px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* ハンバーガーメニュー */
+  .hamburger-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 1000;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+  }
+  
+  .hamburger-menu.active {
+    left: 0;
+  }
+  
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .menu-list li {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .menu-list a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+  }
+  
+  .menu-close {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* オプション: ホバー時のエフェクト追加 */
+  .menu-close:hover {
+    opacity: 0.7;
+  }
+  
+  /* ハンバーガーアイコン */
+  .hamburger-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  .hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+  }
+  /* メニューオープン時のオーバーレイ */
+  .menu-overlay {
+    display: none;
+    position: fixed;
+    width: 13%;
+    top: 58px;
+    right: 5px;
+    z-index: 998;
+  }
+  
+  /* ハンバーガーメニュー全体 */
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+  
+  .menu.open {
+    left: 0;
+  }
+  
+  /* メニューヘッダー部分 */
+  .menu-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    padding-top: 75px; /* 上部の余白を追加 */
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1001;
+    width: 100%;
+  }
+  
+  .close-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    cursor: pointer;
+    min-width: 24px; /* 最小幅を設定 */
+    height: 24px; /* 高さを設定 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  /* モバイル表示時のみハンバーガーメニューを表示 */
+  
+  
+  .search-box {
+    flex: 1;
+    position: relative;
+    margin-right: 15px; /* 右側の余白を追加 */
+  }
+  
+  .search-box input {
+    width: 100%;
+    padding: 8px 35px 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+  }
+  
+  /* ログインエリア */
+  .login-area {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .login-icons {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .login-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .login-item svg {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .login-item span {
+    font-size: 12px;
+  }
+  
+  /* カテゴリーリスト */
+  .category-list {
+    padding: 15px;
+  }
+  
+  .category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .category-item span {
+    font-size: 14px;
+  }
+  
+  .category-section {
+    margin: 15px 0;
+  }
+  
+  .category-section h4 {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    padding: 10px 0;
+  }
+  
+  .category-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .category-section li {
+    font-size: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* SNSリンク */
+  .sns-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .sns-icon {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  /* ハンバーガーボタン */
+  .header_btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1002; /* z-indexを高く設定して最前面に */
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background-color: transparent;
+  }
+  
+  .line1, .line2, .line3 {
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  /* ハンバーガーボタンのアニメーション */
+  .line1.open {
+    transform: rotate(45deg) translate(6px, 6px);
+    background-color: #F08300;
+  }
+  
+  .line2.open {
+    opacity: 0;
+  }
+  
+  .line3.open {
+    transform: rotate(-45deg) translate(6px, -6px);
+    background-color: #F08300;
+  }
+  
+  /* スクロールバーのカスタマイズ */
+  .menu::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .menu::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .menu::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+  
+  /* アコーディオン展開時のプラスアイコン回転 */
+  .category-item.open .plus-icon {
+    transform: rotate(45deg);
+  }
+  
+  /* 検索タイプのセレクトボックス */
+  .search_type {
+    margin-right: 10px;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  /* カテゴリーセクションのアコーディオン */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+  }
+  
+  .section-header h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .category-section ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .category-section ul.open {
+    max-height: 500px; /* 十分な高さを設定 */
+  }
+  
+  /* プラス/マイナスアイコンのアニメーション */
+  .section-header svg {
+    transition: transform 0.3s ease;
+    font-size: 14px;
+    color: #f58026;;
+  }
+  
+  .section-header:hover {
+    opacity: 0.7;
+  }
+  
+  /* 店舗画像のスタイル */
+  .store-image {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    margin: 10px 0;
+  }
+  .search-box {
+    flex: 1;
+    position: relative;
+    margin-right: 15px; /* 右側の余白を追加 */
+  }
+  
+  .search-box input {
+    width: 100%;
+    padding: 8px 35px 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+  }
+  
+  /* ログインエリア */
+  .login-area {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .login-icons {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .login-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .login-item svg {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .login-item span {
+    font-size: 12px;
+  }
+  
+  /* カテゴリーリスト */
+  .category-list {
+    padding: 15px;
+  }
+  
+  .category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .category-item span {
+    font-size: 14px;
+  }
+  
+  .category-section {
+    margin: 15px 0;
+  }
+  
+  .category-section h4 {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    padding: 10px 0;
+  }
+  
+  .category-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .category-section li {
+    font-size: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* SNSリンク */
+  .sns-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .sns-icon {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  /* ハンバーガーボタン */
+  .header_btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1002; /* z-indexを高く設定して最前面に */
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background-color: transparent;
+  }
+  
+  .line1, .line2, .line3 {
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  /* ハンバーガーボタンのアニメーション */
+  .line1.open {
+    transform: rotate(45deg) translate(6px, 6px);
+    background-color: #F08300;
+  }
+  
+  .line2.open {
+    opacity: 0;
+  }
+  
+  .line3.open {
+    transform: rotate(-45deg) translate(6px, -6px);
+    background-color: #F08300;
+  }
+  
+  /* スクロールバーのカスタマイズ */
+  .menu::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .menu::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .menu::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+  
+  /* アコーディオン展開時のプラスアイコン回転 */
+  .category-item.open .plus-icon {
+    transform: rotate(45deg);
+  }
+  
+  /* 検索タイプのセレクトボックス */
+  .search_type {
+    margin-right: 10px;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  /* カテゴリーセクションのアコーディオン */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+  }
+  
+  .section-header h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .category-section ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .category-section ul.open {
+    max-height: 500px; /* 十分な高さを設定 */
+  }
+  
+  /* プラス/マイナスアイコンのアニメーション */
+  .section-header svg {
+    transition: transform 0.3s ease;
+    font-size: 14px;
+    color: #f58026;;
+  }
+  
+  .section-header:hover {
+    opacity: 0.7;
+  }
+  
+  /* 店舗画像のスタイル */
+  .store-image {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    margin: 10px 0;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .footer-links li {
+    text-align: center;
+    margin: 0;
+    padding: 5px 0;
+  }
+
+  .footer-bottom p {
+    text-align: center;
+    padding: 0 20px;
+  }
+
+    .allreview-wrapper .swiper-button-next,
+    .allreview-wrapper .swiper-button-prev {
+        display: none;
+}
+}
+
+@media (max-width: 768px) {
+  .hamburger-icon {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
+  .product-card {
+      width: 50%; /* タブレットサイズ */
+  }
+
+  .reviw-img{
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 615px) {
+  .footer-container {
+    display: none;
+  }
+
+  .footer-links {
+    margin: 30px 0;  /* 上下のマージンを追加 */
+  }
+
+  .footer-links li {
+    font-size: 16px;
+    padding: 8px 0;
+  }
+
+  .footer-bottom {
+    margin-top: 20px;  /* 下部セクションの上マージンを追加 */
+  }
+
+  .footer-bottom p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 15px 0;  /* 段落間のマージンを追加 */
+  }
+}
+
+/* スマホ */
+@media (max-width: 480px) {
+  .swiper {
+    width: 100%;
+  }
+  .brandsearch{
+    display: none;
+  }
+  .leftbrandcate{
+    display: none;
+  }
+  .staff-reviewcon{
+    display: flex;
+    flex-direction: column;
+  }
+  .staff-reviewitem {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    gap: 5px;
+  }
+  .swiper-pagination {
+    bottom: 10px; /* ページネーションの位置を調整 */
+    text-align: center;
+  }
+  
+  .swiper-pagination-bullet {
+    background-color: #f58026; /* ドットの色を設定 */
+    opacity: 0.3; /* ドットの透明度を設定 */
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: #ff8c00; /* アクティブなドットの色を設定 */
+    opacity: 1;
+  }
+  .staff-review-wrapper .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #F08300;
+}
+}
+
+/* これがハンバーガーメニューのボタン位置調整用 */
+
+.swiper-wrapper {
+    z-index: 1;
+}
+
+
+

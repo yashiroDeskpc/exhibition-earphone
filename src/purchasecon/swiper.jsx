@@ -5,7 +5,7 @@ import { Scrollbar } from "swiper/modules";
 import headphone from "../img/headphone1.png";
 
 
-export default function kawari(){
+export default function Kawari(){
 const products = [
     { id: 1, image: headphone, name: "商品名A", company: "B社", price: "¥65,540(税込み)", points: "加算ポイント120pt", rating: "4.0" },
     { id: 2, image: headphone, name: "商品名B", company: "B社", price: "¥65,540(税込み)", points: "加算ポイント120pt", rating: "4.0" },
@@ -15,6 +15,7 @@ const products = [
 ];
 
 return(
+  <>
 <Swiper
         slidesPerView={4}
         spaceBetween={20}
@@ -25,11 +26,11 @@ return(
           clickable: true,
         }}
         modules={[Scrollbar]}
-        className="product-swiper"
+        className="purchase-swiper"
       >
         {products.map((product) => (
           <SwiperSlide key={product.id}>
-            <div className="product-card">
+            <div className="purchase-card">
               <img src={product.image} alt={product.name} className="product-image" />
               <div className="product-info">
                 <div className="badge-container">
@@ -45,5 +46,6 @@ return(
           </SwiperSlide>
         ))}
       </Swiper>
+      </>
       )
 }

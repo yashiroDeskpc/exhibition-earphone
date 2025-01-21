@@ -50,8 +50,21 @@ export default () => {
       pagination={{ clickable: true }}
       centeredSlides={true}
       loop={true}
+      breakpoints={{
+        0: {
+          slidesPerView: 1,
+        },
+        480: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 4,
+        },
+      }}
     >
-      
       {createSlidce2()}
       {createSlide()}
       {createSlidce2()}
