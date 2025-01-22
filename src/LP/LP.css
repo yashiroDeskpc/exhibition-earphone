@@ -50,10 +50,6 @@ h1 img {
     padding: 0;
 }
 
-.img_logo{
-    width: 180px;
-    height: auto;
-}
 
 .highpur{
     width: 80%;
@@ -346,6 +342,13 @@ h2{
 
 .corppur_img1{
     margin: 0 auto;
+    width: 600px;
+    height: auto;
+    padding:  0 2% 0 2%;
+}
+
+.corppur_imgbottom{
+    margin-top: 10px;
 }
 
 .corppur p{
@@ -358,12 +361,20 @@ h2{
 }
 
 .corppur_btn{
+    width: 135px;
     background-color: #A57200;
     color: white;
-    padding: 5px 40px;
-    margin: 40px auto;
+    padding-top: 0;
+    margin: 0 auto;
     display: block;
     box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.open-modal-button{
+    text-decoration: none;
 }
 
 .precautions{
@@ -454,6 +465,7 @@ h2{
 
 
 
+
 @media (max-width: 768px) { /* 768px以下の画面サイズで */
     .menu-toggle {
         display: flex; /* ハンバーガーメニューを表示 */
@@ -539,5 +551,24 @@ h2{
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+}
+
+
+@media(max-width:600px) {
+    .col3_item_text img{
+        width: 60%;
+    }
+}
+
+@media(max-width:436px) {
+    .purmetbtn{
+        margin: 0 10px 5px 0;
+    }
+    .img_logo{
+        width: 150px;
+    }
+    .col3_item_text img{
+        width: 75%;
     }
 }

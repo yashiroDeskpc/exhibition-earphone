@@ -10,33 +10,37 @@ import Recommend from '../component/recommend'
 import BrandSearch from '../component/BrandSearch'
 import CategSearch from '../component/categ'
 import HamburgerMenu from './menu'
+import ModalWindow from '../modalwindow'
 import '../App.css';
 
 function Toppage() {
     return (
         <>
-        <div className='header-top'>
-        <HamburgerMenu />
-        <Header />
-        <SliderComponent />
-        <div className='grid-container'>
-        <div className="productcate" id='productcateleft'>
-        <Bannar />
-        <CategSearch />
-        <BrandSearch />
-        </div>
-        <div className="productcate" id='productcateright'>
-        <RecentProducts />
-        </div>
-        </div>
-        <Reviewcol />
-        <News />
-        <Recommend />
-        <Guidance />
-        </div>
-        <Footer />
+            <div className='header-top'>
+                <HamburgerMenu />
+                <Header />
+            </div>
+            <main>
+                <SliderComponent />
+                <div className='grid-container'>
+                    <div className="productcate" id='productcateleft'>
+                        <Bannar />
+                        <CategSearch />
+                        <BrandSearch />
+                    </div>
+                    <div className="productcate" id='productcateright'>
+                        <RecentProducts />
+                    </div>
+                </div>
+                <Reviewcol />
+                <News />
+                <Recommend />
+                <Guidance />
+            </main>
+            <Footer />
+            <ModalWindow />
         </>
-    )
+    );
 }
 
 export default Toppage;

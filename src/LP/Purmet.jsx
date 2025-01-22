@@ -137,10 +137,10 @@ const PurchaseOptions = () => {
       )}
 
       <div style={{ marginTop: "20px" }}>
-        <button style={{ backgroundColor: "#F08300", color: "white", padding: "10px 20px", border: "none", borderRadius: "5px", cursor: "pointer", marginRight: "10px" }}>
+        <button className="purmetbtn" style={{ backgroundColor: "#F08300", color: "white", padding: "10px 20px", border: "none", borderRadius: "5px", cursor: "pointer", marginRight: "10px" }}>
           {activeOption === "宅配買取" ? "宅配買取の詳細はこちら" : activeOption === "店頭買取" ? "店頭買取の詳細はこちら" : "クイックコースの詳細はこちら"}
         </button>
-        <button style={{ backgroundColor: "red", color: "white", padding: "10px 20px", border: "none", borderRadius: "5px", cursor: "pointer" }}>
+        <button className="purmetbtn" style={{ backgroundColor: "red", color: "white", padding: "10px 20px", border: "none", borderRadius: "5px", cursor: "pointer" }}>
           {activeOption === "宅配買取" ? "宅配買取のお申し込み" : activeOption === "店頭買取" ? "買取できるお店を探す" : "クイックコースのお申し込み"}
         </button>
       </div>

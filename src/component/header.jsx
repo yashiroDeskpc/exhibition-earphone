@@ -4,6 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
+import ModalWindow from '../modalwindow';
 import { BrowserRouter, Route, Routes, Link } from 'react-router';
 
 
@@ -76,9 +77,9 @@ function Header() {
                     <ul className="menu_content">
                         <li><Link to="/LP" className='reactlink'>eイヤホンの買取サービス</Link></li>
                     <li><a href="#">無料査定のお申込み</a></li>
-                    <li><Link to="/purchase" className='reactlink'>買取価格を調べる</Link></li>
+                    <li><a href="#">買取価格を調べる</a></li>
                     <li><a href="#">買取Q&A</a></li>
-                    <li><Link to="/LP">法人買い取りについて</Link></li>
+                    <li><a href="#" id='modal-id'><ModalWindow triggerElement="a" /></a></li>
                     </ul>
                 </div>
                 <div className="menu_item">
@@ -110,9 +111,8 @@ function Header() {
                     <div className="menu_item">
                     <label htmlFor="menu05">店舗一覧&#x2304;</label>
                     <ul className="menu_content">
-                    img
-                    <li><a href="#">秋葉原店</a></li>
                     <li><a href="#"></a></li>
+
                     </ul>
                 </div>
                     <div className="menu_item">

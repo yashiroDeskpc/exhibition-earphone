@@ -9,12 +9,10 @@ import News from './component/news';
 import Guidance from './component/guidance';
 import Sougo from './component/guidance';
 import Toppage from './component/Toppage';
-import Purchase from './purchasecon/purchase';
 import { BrowserRouter, Route, Routes, Link } from 'react-router';
 import Highpur from './LP/highpur';
 import Purcheck from './LP/purcheck';
 import LP from './LP/LP';
-import './App.css';
 
 function App() {
   return (
@@ -22,7 +20,6 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Toppage />} />
-      <Route path="/purchase" element={<Purchase />} />
       <Route path="/LP" element={<LP />} />
     </Routes>
     </BrowserRouter>

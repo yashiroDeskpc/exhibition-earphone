@@ -1152,6 +1152,182 @@ summary::-webkit-details-marker {
 
 
 
+
+/* modalwindow */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  overflow: hidden; /* 追加: オーバーレイのスクロールを無効にする */
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 90%;
+  width: 500px;
+  max-height: 80vh; /* 追加: 最大高さを設定 */
+  overflow-y: auto; /* 追加: 縦方向のスクロールを可能にする */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative; /* 必須: ボタン位置の基準になります */
+}
+
+.modal-close {
+  position: fixed; /* モーダル内での位置指定に必要 */
+  top: 20px; /* 上からの距離 */
+  right: 5%; /* 右からの距離 */
+  background: none;
+  border: none;
+  font-size: 2.3rem;
+  cursor: pointer;
+  color: #ffffff; /* ボタン色 */
+}
+
+.modal-close:hover {
+  color: #ff0000; /* ホバー時の色変更（オプション） */
+}
+
+.modal-houjin12{
+  width: 600px;
+  height: auto;
+  margin: 0 auto;
+}
+
+
+/* modal内css */
+
+.modalcol{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.modalh4{
+  background-color: #8b4513;
+  color: white;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5px;
+  font-size: 1.1rem;
+  
+}
+
+.modaltext{
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.modaltext2{
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.modal-imgakiba{
+  margin: 0 auto;
+}
+
+.modaltext-bold{
+  font-weight: bold;
+}
+
+.imgdiv{
+  margin: 5px 0;
+}
+
+h5{
+  font-size: 1.1rem;
+}
+
+.open-modal-button{
+  margin: 0;
+  padding: 0;
+}
+
+.modal-step{
+  margin: 15px 0;
+  font-weight: bold;
+  background-color: #c5c5c5;
+  border-radius: 3px;
+  padding: 5px 0;
+}
+
+.modal-step span{
+  background-color: #8b4513;
+  padding: 5px 0;
+  border-radius: 3px;
+  color: white;
+}
+
+#modal-id{
+  padding: 0;
+}
+
+.modal-col{
+  padding: 0;
+}
+
+.modaltextstep{
+  font-weight: bold;
+}
+
+.modaltextbtmtop{
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+
+.modal-btn {
+  background-color: red;
+  color: white;
+  padding: 10px 30px;
+  margin: 10px auto;
+  border-radius: 5px;
+  display: flex; /* 追加: フレックスボックスを使用 */
+  justify-content: center; /* 追加: 水平方向に中央揃え */
+  align-items: center; /* 既存: 縦方向に中央揃え */
+  box-shadow: 21px 20px 26px -1px #777777;
+}
+
+.modal-btn-div{
+  padding: 10px 0;
+}
+
+/* PC版スタイル */
+@media (min-width: 1024px) {
+  .modal-content {
+    width: 1000px; /* 横幅を広げる */
+    max-width: 90%; /* 最大幅の調整 */
+  }
+}
+
+/* タブレット版（例） */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .modal-content {
+    width: 600px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* レスポンシブデザインのためのメディアクエリ */
 
 
@@ -1301,23 +1477,7 @@ summary::-webkit-details-marker {
   }
   .hamburger-menu {
     display: block;
-  }
-  .header_btn {
-    max-width: 35px;
-    width: 35px;
-    height: 35px;
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 7px;
-    z-index: 9999;
-    padding: 5px;
-    background-color: transparent;
-    cursor: pointer;
-  }
+  } 
   
   /* 三本線のスタイル */
   .line1, .line2, .line3 {
@@ -1344,7 +1504,7 @@ summary::-webkit-details-marker {
   
   /* メニューが開いているときのボタン位置 */
   .header_btn.open {
-    top: 15px;
+    top: 45px;
     left: 15px;
     transition: all 0.3s ease-in-out;
   }
@@ -1583,21 +1743,7 @@ summary::-webkit-details-marker {
     font-size: 14px;
   }
   
-  /* ハンバーガーボタン */
-  .header_btn {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    z-index: 1002; /* z-indexを高く設定して最前面に */
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 6px;
-    background-color: transparent;
-  }
+
   
   .line1, .line2, .line3 {
     width: 100%;
@@ -1800,12 +1946,12 @@ summary::-webkit-details-marker {
   /* ハンバーガーボタン */
   .header_btn {
     position: fixed;
-    top: 15px;
+    top: 45px;
     left: 15px;
     z-index: 1002; /* z-indexを高く設定して最前面に */
     cursor: pointer;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1929,6 +2075,25 @@ summary::-webkit-details-marker {
     .allreview-wrapper .swiper-button-prev {
         display: none;
 }
+
+.h_top{
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  background-color: white;
+  margin: 0;
+  top:0
+}
+
+.img_logo{
+  padding-top: 15px;
+}
+
+main{
+  margin-top: 170px;
+  height: 100%;
+}
+
 }
 
 @media (max-width: 768px) {
@@ -2018,6 +2183,12 @@ summary::-webkit-details-marker {
     opacity: 1;
     background: #F08300;
 }
+.fixed-item img {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  margin: 0 auto;
+}
 }
 
 /* これがハンバーガーメニューのボタン位置調整用 */
@@ -2025,6 +2196,3 @@ summary::-webkit-details-marker {
 .swiper-wrapper {
     z-index: 1;
 }
-
-
-
