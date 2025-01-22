@@ -3,6 +3,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaHeart, FaPlus, FaMinus } from "react-icons/fa6";
 import { IoSearch, IoPerson } from "react-icons/io5";
 import { BrowserRouter, Route, Routes, Link } from "react-router";
+import ModalWindow from "../modalwindow"
 
 function HamburgerMenu() {
     const [isOpen, setIsOpen] = useState(false);
@@ -136,6 +137,7 @@ function HamburgerMenu() {
                                 <li>無料査定のお申込み</li>
                                 <li>買取査定を調べる</li>
                                 <li>買取Q&A</li>
+                                <li><ModalWindow/></li>
                             </ul>
                         </div>
                         <div className="category-section">
